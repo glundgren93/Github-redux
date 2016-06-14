@@ -1,0 +1,2 @@
+export const SET_REPOSITORY = 'SET_REPOSITORY';
+export const LOOK_REPOSITORY = 'LOOK_REPOSITORY';
