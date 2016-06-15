@@ -1,10 +1,12 @@
 import { combineReducers } from 'redux';
 import { routerReducer } from 'react-router-redux';
-import { repositories } from './repositories';
+import { repositoryList } from './repositoryList';
 import { repository } from './repository';
+import { profile } from './profile';
 
 export default combineReducers({
-  repositories,
+  profile,
+  repositoryList,
   repository,
   routing: routerReducer
 });

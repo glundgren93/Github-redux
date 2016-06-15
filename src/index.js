@@ -6,11 +6,12 @@ import { Provider } from 'react-redux';
 import configureStore from './stores/configureStore';
 import * as actions from './actions';
 import App from './components/App';
-import RepositoryList from './components/RepositoryList';
+import Home from './components/Home';
 import Repository from './components/Repository';
 
 const store = configureStore();
 store.dispatch(actions.getRepositories());
+store.dispatch(actions.getProfile());
 
 const history = syncHistoryWithStore(browserHistory, store);
 
@@ -18,7 +19,7 @@ render(
   <Provider store={store}>
     <Router history={history}>
       <Route path="/" component={App}>
-        <IndexRoute component={RepositoryList} />
+        <IndexRoute component={Home} />
         <Route path="/repository/:Id" component={Repository} />
       </Route>
     </Router>

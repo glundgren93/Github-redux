@@ -2,7 +2,7 @@ import * as actionTypes from '../constants/actionTypes';
 
 const initialState = [];
 
-export const repositories = (state = initialState, action) => {
+export const repositoryList = (state = initialState, action) => {
   switch (action.type) {
     case actionTypes.SET_REPOSITORY:
       return setRepositories(state, action);

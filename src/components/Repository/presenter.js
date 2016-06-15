@@ -1,5 +1,4 @@
 import React from 'react';
-import Header from '../Header/presenter';
 import { Link } from 'react-router';
 
 const Repository = ({ repo = {} }) => {

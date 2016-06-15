@@ -5,7 +5,7 @@ import * as actions from '../../actions';
 import RepositoryList from './presenter';
 
 const mapStateToProps = (state) => {
-  const repos = state.repositories;
+  const repos = state.repositoryList;
   return {
     repos
   }

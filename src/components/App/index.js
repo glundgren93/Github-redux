@@ -1,9 +1,13 @@
 import React from 'react';
+import Navbar from '../Navbar';
 
 const App = ({ children }) => {
   return (
-    <div className="container">
-      {children}
+    <div>
+      <Navbar name = "GitHub React-Redux App"/>
+      <div className="container">
+        {children}
+      </div>
     </div>
   )
 }
