@@ -1,12 +1,7 @@
 import * as actionTypes from '../constants/actionTypes';
-import { TOKEN } from '../constants/auth';
-import GitHub from 'github-api';
+import GitHubApi from '../services/api';
 
-var gh = new GitHub({
-   token: TOKEN
-});
-
-const user = gh.getUser();
+const user = GitHubApi.getUser();
 
 const setProfile = (profile) => {
   return {

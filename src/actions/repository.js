@@ -1,10 +1,5 @@
 import * as actionTypes from '../constants/actionTypes';
-import { TOKEN } from '../constants/auth';
-import GitHub from 'github-api';
-
-var gh = new GitHub({
-   token: TOKEN
-});
+import GitHubApi from '../services/api';
 
 const lookRepository = (repo) => {
   return {
@@ -15,7 +10,7 @@ const lookRepository = (repo) => {
 
 export const getRepositoryByName = (repoName) => {
   return (dispatch) => {
-    const repo = gh.getRepo('glundgren93', repoName);
+    const repo = GitHubApi.getRepo('glundgren93', repoName);
 
     repo.getDetails(function(err, data){
       dispatch(lookRepository(data));
