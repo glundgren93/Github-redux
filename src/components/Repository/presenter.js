@@ -9,6 +9,7 @@ class Repository extends Component {
 
   render() {
     const { repo = {}, repoTree } = this.props;
+    console.log('render repository')
 
     return (
       <div className="row">
