@@ -6,9 +6,18 @@ import Repository from './presenter';
 
 const mapStateToProps = (state) => {
   const repo = state.repository;
+  const repoTree = state.repositoryTree;
+
   return {
-    repo
+    repo,
+    repoTree
   }
 }
 
-export default connect(mapStateToProps)(Repository);
+const mapDispatchToProps = (dispatch) => {
+  return {
+    getRepo: bindActionCreators(actions.getRepositoryByName, dispatch)
+  };
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Repository);

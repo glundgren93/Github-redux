@@ -14,8 +14,18 @@ export const getRepositoryByName = (repoName) => {
 
     repo.getDetails(function(err, data){
       dispatch(lookRepository(data));
+      repo.getTree('master', function(err, data){
+        dispatch(lookTree(data));
+      });
     });
   };
+}
+
+const lookTree = (tree) => {
+  return {
+    type: actionTypes.LOOK_TREE,
+    tree
+  }
 }
 
 // repo.getContents('master', '', true, function(err, data){

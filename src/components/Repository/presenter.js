@@ -1,13 +1,26 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { Link } from 'react-router';
+import RepositoryTree from '../RepositoryTree/presenter'
 
-const Repository = ({ repo = {} }) => {
-  return (
+class Repository extends Component {
+  componentWillMount() {
+    this.props.getRepo(this.props.params.name);
+  }
+
+  render() {
+    const { repo = {}, repoTree } = this.props;
+
+    return (
       <div className="row">
-        {repo.name}
-        <Link to="/" className="btn btn-primary">Back</Link>
+        <h3>{ repo.full_name }</h3>
+      <div>
+        <hr />
+        <RepositoryTree repoTree={ repoTree } />
       </div>
-  );
+        <Link to="/" className="btn btn-primary pull-right">Back</Link>
+      </div>
+    )
+  }
 }
 
 export default Repository;

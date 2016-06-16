@@ -11,10 +11,4 @@ const mapStateToProps = (state) => {
   }
 }
 
-const mapDispatchToProps = (dispatch) => {
-  return {
-    getRepo: bindActionCreators(actions.getRepositoryByName, dispatch)
-  };
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(RepositoryList);
+export default connect(mapStateToProps)(RepositoryList);

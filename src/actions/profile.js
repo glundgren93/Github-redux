@@ -12,8 +12,9 @@ const setProfile = (profile) => {
 
 export const getProfile = () => {
   return (dispatch) => {
-    user.getProfile(function(err, data){
-      dispatch(setProfile(data));
-    })
+    user.getProfile()
+      .then(function({ data }) {
+        dispatch(setProfile(data));
+      });
   };
 };
