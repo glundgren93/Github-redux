@@ -11,7 +11,7 @@ const lookRepository = (repo) => {
 export const getRepositoryByName = (repoName) => {
   return (dispatch) => {
     const repo = GitHubApi.getRepo('glundgren93', repoName);
-    
+
     repo.getDetails(function(err, data){
       dispatch(lookRepository(data));
       repo.getTree('master', function(err, data){
@@ -27,7 +27,3 @@ const lookTree = (tree) => {
     tree
   }
 }
-
-// repo.getContents('master', '', true, function(err, data){
-//   dispatch(lookRepository(data));
-// });

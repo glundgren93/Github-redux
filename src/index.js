@@ -8,6 +8,7 @@ import * as actions from './actions';
 import App from './components/App';
 import Home from './components/Home';
 import Repository from './components/Repository';
+import Blob from './components/Blob';
 
 const store = configureStore();
 store.dispatch(actions.getRepositories());
@@ -21,6 +22,7 @@ render(
       <Route path="/" component={App}>
         <IndexRoute component={Home} />
         <Route path="/repository/:name" component={Repository} />
+        <Route path="/repository/:name/:sha" component={Blob} />
       </Route>
     </Router>
   </Provider>,

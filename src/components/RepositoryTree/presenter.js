@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import { isEmpty } from 'lodash';
+import { Link } from 'react-router';
 
 class RepositoryTree extends Component {
   render() {
-    const { repoTree } = this.props;
+    const { repo, repoTree } = this.props;
 
     return (
       <table className="table table-hover">
@@ -19,7 +20,7 @@ class RepositoryTree extends Component {
              repoTree.tree.map((file) => {
                  return (
                    <tr key={ file.sha }>
-                     <td>{ file.path }</td>
+                     <td><Link to={`/repository/${repo.name}/${file.sha}`}>{ file.path }</Link></td>
                    </tr>
                  )
              })

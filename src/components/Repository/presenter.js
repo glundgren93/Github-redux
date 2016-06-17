@@ -9,14 +9,13 @@ class Repository extends Component {
 
   render() {
     const { repo = {}, repoTree } = this.props;
-    console.log('render repository')
 
     return (
       <div className="row">
         <h3>{ repo.full_name }</h3>
       <div>
         <hr />
-        <RepositoryTree repoTree={ repoTree } />
+        <RepositoryTree repoTree={ repoTree } repo={ repo }/>
       </div>
         <Link to="/" className="btn btn-primary pull-right">Back</Link>
       </div>
