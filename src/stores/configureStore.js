@@ -9,7 +9,7 @@ import rootReducer from '../reducers/index';
 const logger = createLogger();
 const router = routerMiddleware(browserHistory);
 
-const createStoreWithMiddleware = applyMiddleware(ReduxPromise, logger, thunk, router)(createStore);
+const createStoreWithMiddleware = applyMiddleware(ReduxPromise, thunk, router, logger)(createStore);
 
 export default function configureStore(initialState) {
   return createStoreWithMiddleware(rootReducer, initialState);

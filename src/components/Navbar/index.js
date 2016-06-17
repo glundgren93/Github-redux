@@ -6,7 +6,7 @@ const Navbar = ({ name }) => {
     <nav className="navbar navbar-default">
       <div className="container-fluid">
         <div className="navbar-header">
-            <Link to="/" ><a className="navbar-brand">{ name }</a></Link>
+          <Link className="navbar-brand" to="/" >{ name }</Link>
         </div>
       </div>
     </nav>
