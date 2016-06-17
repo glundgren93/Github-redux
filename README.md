@@ -4,7 +4,8 @@ React / Redux GitHub Clone
 
 ## To run
 
-Create auth.js  file in /src/constants folder
+Create auth.js  file in /src/constants folder.
+
 Create and export TOKEN generated from github.
 
 ```bash
