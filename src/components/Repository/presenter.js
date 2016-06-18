@@ -13,10 +13,9 @@ class Repository extends Component {
     return (
       <div className="row">
         <h3>{ repo.full_name }</h3>
-      <div>
-        <hr />
-        <RepositoryTree repoTree={ repoTree } repo={ repo }/>
-      </div>
+        <div>
+          <RepositoryTree repoTree={ repoTree } repo={ repo }/>
+        </div>
       </div>
     )
   }

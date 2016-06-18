@@ -13,8 +13,8 @@ class Blob extends Component {
     const fileName = this.props.params.path;
 
     return (
-      <div>
-        <h4>{ fileName }</h4>
+      <div className="row">
+        <h3>{ fileName }</h3>
         <pre>
           { blob }
         </pre>

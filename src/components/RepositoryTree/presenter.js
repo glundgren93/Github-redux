@@ -7,8 +7,7 @@ class RepositoryTree extends Component {
     const { repo, repoTree } = this.props;
 
     return (
-      <table className="table table-hover">
-
+      <table className="table table-hover table-bordered">
         <tbody>
           {
             isEmpty(repoTree) ?
