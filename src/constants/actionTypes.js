@@ -3,3 +3,4 @@ export const LOOK_REPOSITORY = 'LOOK_REPOSITORY';
 export const GET_PROFILE = 'GET_PROFILE';
 export const LOOK_TREE = 'LOOK_TREE';
 export const GET_BLOB = 'GET_BLOB';
+export const GET_TREE = 'GET_TREE';

@@ -8,11 +8,7 @@ class RepositoryTree extends Component {
 
     return (
       <table className="table table-hover">
-        <thead>
-          <tr>
-            <th>File</th>
-          </tr>
-        </thead>
+
         <tbody>
           {
             isEmpty(repoTree) ?
@@ -20,7 +16,9 @@ class RepositoryTree extends Component {
              repoTree.tree.map((file) => {
                  return (
                    <tr key={ file.sha }>
-                     <td><Link to={`/repository/${repo.name}/${file.sha}`}>{ file.path }</Link></td>
+                     { file.type == 'tree'
+                       ? <td><Link to={`/repository/${repo.name}/tree/${file.path}/${file.sha}`}>{ file.path }</Link></td>
+                       : <td><Link to={`/repository/${repo.name}/blob/${file.sha}/${file.path}`}>{ file.path }</Link></td>}
                    </tr>
                  )
              })

@@ -4,9 +4,11 @@ import { repositoryList } from './repositoryList';
 import { repository, repositoryTree } from './repository';
 import { profile } from './profile';
 import { blob } from './blob';
+import { tree } from './tree';
 
 export default combineReducers({
   blob,
+  tree,
   profile,
   repositoryList,
   repository,

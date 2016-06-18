@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { isEmpty } from 'lodash';
 import { Link } from 'react-router';
 
 class Blob extends Component {
@@ -8,14 +9,15 @@ class Blob extends Component {
 
   render() {
     const { blob } = this.props;
-    const repoName = this.props.params.name;
+    const repoName = this.props.params.repoName;
+    const fileName = this.props.params.path;
 
     return (
       <div>
+        <h4>{ fileName }</h4>
         <pre>
           { blob }
         </pre>
-        <Link to={`/repository/${repoName}`} className="btn btn-primary pull-right">Back</Link>
       </div>
     )
   }

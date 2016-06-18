@@ -2,20 +2,20 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import * as actions from '../../actions';
-import Blob from './presenter';
+import Tree from './presenter';
 
 const mapStateToProps = (state) => {
-  const blob = state.blob;
-  
+  const tree = state.tree;
+
   return {
-    blob
+    tree
   }
 }
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    getBlob: bindActionCreators(actions.getBlob, dispatch)
+    getTree: bindActionCreators(actions.getTree, dispatch)
   };
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Blob);
+export default connect(mapStateToProps, mapDispatchToProps)(Tree);

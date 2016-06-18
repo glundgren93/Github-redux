@@ -17,7 +17,6 @@ class Repository extends Component {
         <hr />
         <RepositoryTree repoTree={ repoTree } repo={ repo }/>
       </div>
-        <Link to="/" className="btn btn-primary pull-right">Back</Link>
       </div>
     )
   }

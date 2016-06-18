@@ -9,6 +9,7 @@ import App from './components/App';
 import Home from './components/Home';
 import Repository from './components/Repository';
 import Blob from './components/Blob';
+import Tree from './components/Tree';
 
 const store = configureStore();
 store.dispatch(actions.getRepositories());
@@ -22,7 +23,8 @@ render(
       <Route path="/" component={App}>
         <IndexRoute component={Home} />
         <Route path="/repository/:name" component={Repository} />
-        <Route path="/repository/:name/:sha" component={Blob} />
+        <Route path="/repository/:repoName/blob/:sha/:path" component={Blob} />
+        <Route path="/repository/:repoName/tree/:path/:sha" component={Tree} />
       </Route>
     </Router>
   </Provider>,

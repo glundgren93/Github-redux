@@ -1,20 +1,22 @@
 import * as actionTypes from '../constants/actionTypes';
 import GitHubApi from '../services/api';
 
-const setBlob = (blob) => {
+const setTree = (tree) => {
   return {
-    type: actionTypes.GET_BLOB,
-    blob
+    type: actionTypes.GET_TREE,
+    tree
   };
 };
 
-export const getBlob = (sha) => {
+export const getTree = (sha) => {
+
   return (dispatch, getState) => {
+      console.log('disparado');
     const { repository } = getState();
     const repo = GitHubApi.getRepo('glundgren93', repository.name);
-    
-    repo.getBlob(sha, function(err, data) {
-      dispatch(setBlob(data));
+
+    repo.getTree(sha, function(err, data) {
+      dispatch(setTree(data));
     });
   }
 }
