@@ -10,9 +10,9 @@ const setBlob = (blob) => {
 
 export const getBlob = (sha) => {
   return (dispatch, getState) => {
-    const { repository } = getState();
-    const repo = GitHubApi.getRepo('glundgren93', repository.name);
-    
+    const { repository, profile } = getState();
+    const repo = GitHubApi.getRepo(profile.login, repository.name);
+
     repo.getBlob(sha, function(err, data) {
       dispatch(setBlob(data));
     });

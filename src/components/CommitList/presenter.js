@@ -3,7 +3,7 @@ import { isEmpty } from 'lodash';
 
 class CommitList extends Component {
   componentWillMount() {
-    this.props.getCommitList(this.props.params.repoName);
+    this.props.getCommitList();
   }
 
   render() {
@@ -21,7 +21,7 @@ class CommitList extends Component {
                  commitList.map((c) => {
                   const date = new Date(c.commit.author.date);
                      return (
-                       <tr>
+                       <tr key={c.sha}>
                         <td>
                           {
                             c.author == null ?

@@ -11,9 +11,8 @@ const setTree = (tree) => {
 export const getTree = (sha) => {
 
   return (dispatch, getState) => {
-      console.log('disparado');
-    const { repository } = getState();
-    const repo = GitHubApi.getRepo('glundgren93', repository.name);
+    const { repository, profile } = getState();
+    const repo = GitHubApi.getRepo(profile.login, repository.name);
 
     repo.getTree(sha, function(err, data) {
       dispatch(setTree(data));

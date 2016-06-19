@@ -9,8 +9,9 @@ const lookRepository = (repo) => {
 }
 
 export const getRepositoryByName = (repoName) => {
-  return (dispatch) => {
-    const repo = GitHubApi.getRepo('glundgren93', repoName);
+  return (dispatch, getState) => {
+    const { profile } = getState();
+    const repo = GitHubApi.getRepo(profile.login, repoName);
 
     repo.getDetails(function(err, data){
       dispatch(lookRepository(data));

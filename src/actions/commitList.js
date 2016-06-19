@@ -8,9 +8,10 @@ const lookCommitList = (commitList) => {
   }
 }
 
-export const getCommitList = (repoName) => {
-  return (dispatch) => {
-    const repo = GitHubApi.getRepo('glundgren93', repoName);
+export const getCommitList = () => {
+  return (dispatch, getState) => {
+    const { repository, profile } = getState();
+    const repo = GitHubApi.getRepo(profile.login, repository.name);
 
     repo.listCommits(null, function(err, data){
       dispatch(lookCommitList(data));
