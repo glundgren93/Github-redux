@@ -5,9 +5,11 @@ import { repository, repositoryTree } from './repository';
 import { profile } from './profile';
 import { blob } from './blob';
 import { tree } from './tree';
+import { commitList } from './commitList';
 
 export default combineReducers({
   blob,
+  commitList,
   tree,
   profile,
   repositoryList,

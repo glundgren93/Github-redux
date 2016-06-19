@@ -10,6 +10,7 @@ import Home from './components/Home';
 import Repository from './components/Repository';
 import Blob from './components/Blob';
 import Tree from './components/Tree';
+import CommitList from './components/CommitList';
 
 const store = configureStore();
 store.dispatch(actions.getRepositories());
@@ -22,7 +23,8 @@ render(
     <Router history={history}>
       <Route path="/" component={App}>
         <IndexRoute component={Home} />
-        <Route path="/repository/:name" component={Repository} />
+        <Route path="/repository/:repoName" component={Repository} />
+        <Route path="/repository/:repoName/commits" component={CommitList} />
         <Route path="/repository/:repoName/blob/:sha/:path" component={Blob} />
         <Route path="/repository/:repoName/tree/:path/:sha" component={Tree} />
       </Route>
