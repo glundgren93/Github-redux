@@ -7,10 +7,12 @@ import Repository from './presenter';
 const mapStateToProps = (state) => {
   const repo = state.repository;
   const repoTree = state.repositoryTree;
+  const readme = state.readme;
 
   return {
     repo,
-    repoTree
+    repoTree,
+    readme
   }
 }
 
