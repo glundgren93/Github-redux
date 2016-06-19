@@ -1,16 +1,14 @@
 import React from 'react';
-import { Link } from 'react-router';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import * as actions from '../../actions';
+import Navbar from './presenter';
 
-const Navbar = ({ name }) => {
-  return (
-    <nav className="navbar navbar-default">
-      <div className="container-fluid">
-        <div className="navbar-header">
-          <Link className="navbar-brand" to="/" >{ name }</Link>
-        </div>
-      </div>
-    </nav>
-  )
+const mapStateToProps = (state) => {
+  const profile = state.profile;
+  return {
+    profile
+  }
 }
 
-export default Navbar;
+export default connect(mapStateToProps)(Navbar);

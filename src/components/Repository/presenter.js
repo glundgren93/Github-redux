@@ -13,7 +13,8 @@ class Repository extends Component {
     return (
       <div className="row">
         <h3>{ repo.full_name }</h3>
-        <Link to={`/repository/${repo.name}/commits`}>Commits</Link>
+        <Link to={`/repository/${repo.name}/commits`}><span className="label label-primary">Commits</span></Link>
+        <hr />
         <div>
           <RepositoryTree repoTree={ repoTree } repo={ repo }/>
         </div>
