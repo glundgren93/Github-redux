@@ -26,6 +26,7 @@
     ]
   },
   "dependencies": {
+    "clipboard": "^1.5.12",
     "github-api": "^2.2.0",
     "lodash": "^4.13.1",
     "react": "^15.1.0",

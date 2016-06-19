@@ -15,9 +15,11 @@ class Blob extends Component {
     return (
       <div className="row">
         <h3>{ fileName }</h3>
-        <pre>
-          { blob }
-        </pre>
+        <div className="col-md-12">
+          <pre>
+            { blob }
+          </pre>
+        </div>
       </div>
     )
   }

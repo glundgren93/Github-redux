@@ -11,6 +11,9 @@ import Repository from './components/Repository';
 import Blob from './components/Blob';
 import Tree from './components/Tree';
 import CommitList from './components/CommitList';
+import Clipboard from 'clipboard';
+
+var clipboard = new Clipboard('.btn');
 
 const store = configureStore();
 store.dispatch(actions.getRepositories());
