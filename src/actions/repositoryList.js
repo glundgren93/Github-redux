@@ -11,8 +11,12 @@ const setRepositories = (repos) => {
 };
 
 export const getRepositories = () => {
+  const filterOpts = {
+     type: 'owner'
+  };
+
   return (dispatch) => {
-    user.listRepos(function(err, data){
+    user.listRepos(filterOpts, function(err, data){
       dispatch(setRepositories(data));
     })
   };
