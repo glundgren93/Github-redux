@@ -3,6 +3,12 @@ import { isEmpty } from 'lodash';
 import { Link } from 'react-router';
 
 class Tree extends Component {
+  constructor(props) {
+    super(props);
+
+    this.renderList = this.renderList.bind(this);
+  }
+
   componentWillMount() {
     this.props.getTree(this.props.params.sha);
   }
@@ -13,9 +19,18 @@ class Tree extends Component {
     }
   }
 
+  renderList(file) {
+    return (
+      <tr key={ file.sha }>
+        { file.type == 'tree'
+       ? <td><Link to={`/repository/${this.props.params.repoName}/tree/${file.path}/${file.sha}`}>{ file.path }</Link></td>
+       : <td><Link to={`/repository/${this.props.params.repoName}/blob/${file.sha}/${file.path}`}>{ file.path }</Link></td>}
+      </tr>
+    )
+  }
+
   render() {
     const treeFile = this.props.tree;
-    const repoName = this.props.params.repoName;
     const fileName = this.props.params.path;
 
     return (
@@ -24,19 +39,7 @@ class Tree extends Component {
         <div className="col-md-12">
           <table className="table table-hover table-bordered">
             <tbody>
-              {
-                isEmpty(treeFile.tree) ?
-                 <tr>Loading</tr> :
-                 treeFile.tree.map((file) => {
-                     return (
-                       <tr key={ file.sha }>
-                         { file.type == 'tree'
-                        ? <td><Link to={`/repository/${repoName}/tree/${file.path}/${file.sha}`}>{ file.path }</Link></td>
-                        : <td><Link to={`/repository/${repoName}/blob/${file.sha}/${file.path}`}>{ file.path }</Link></td>}
-                       </tr>
-                     )
-                 })
-              }
+              { isEmpty(treeFile.tree) ? <tr>Loading</tr> : treeFile.tree.map(this.renderList) }
             </tbody>
           </table>
         </div>
