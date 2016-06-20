@@ -39,9 +39,7 @@ class CommitList extends Component {
         <div className="col-md-12">
           <table className="table table-hover table-bordered">
             <tbody>
-              {
-                isEmpty(commitList) ? <tr>Loading</tr> : commitList.map(this.renderCommitList)
-              }
+              { isEmpty(commitList) ? <tr>Loading</tr> : commitList.map(this.renderCommitList) }
             </tbody>
           </table>
         </div>
