@@ -44,7 +44,6 @@ class Tree extends Component {
           </table>
         </div>
       </div>
-
     )
   }
 }

@@ -1,5 +1,6 @@
 import * as actionTypes from '../constants/actionTypes';
 import GitHubApi from '../services/api';
+import { isObject } from 'lodash';
 
 const setBlob = (blob) => {
   return {
@@ -14,7 +15,10 @@ export const getBlob = (sha) => {
     const repo = GitHubApi.getRepo(profile.login, repository.name);
 
     repo.getBlob(sha, function(err, data) {
-      dispatch(setBlob(data));
+      if(isObject(data))
+        dispatch(setBlob(JSON.stringify(data, undefined, 2)));
+      else
+        dispatch(setBlob(data));
     });
   }
 }
